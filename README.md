@@ -1,4 +1,4 @@
-# Prison life script to crash the server
+# Roblox Prison Life server crasher
 
 ## How to use
 - Have an M9
