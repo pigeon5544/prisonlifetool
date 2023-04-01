@@ -1,13 +1,13 @@
+if game.PlaceId ~= 155615604 then
+    LocalPlayer:Kick("Game not supported")
+end
+
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local StarterGui = game:GetService("StarterGui")
 local CrashEvent = ReplicatedStorage.ShootEvent
 local Random = Random.new()
-
-if game.PlaceId ~= 155615604 then
-    LocalPlayer:Kick("Game not supported")
-end
 
 local function GetM9(Backpack) if not Backpack then return LocalPlayer.Character:FindFirstChild("M9") else return LocalPlayer.Backpack:FindFirstChild("M9") end end
 local function SendNotification(Title, Text) StarterGui:SetCore("SendNotification", {Title = Title, Text = Text}) end
