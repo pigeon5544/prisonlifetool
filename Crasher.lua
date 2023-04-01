@@ -1,10 +1,32 @@
-if game.PlaceId ~= 155615604 then
-    LocalPlayer:Kick("Game not supported")
-end
-
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+
+-- Heavily modified ver of https://v3rmillion.net/showthread.php?tid=118252 because I couldn't be bothered to figure out making ui with scripts myself 💯
+if game.PlaceId ~= 155615604 then
+    local Screams = {"9125712561", "5546573724", "270145703", "715673747", "9125713501", "1093096537", "9125712561", "9125712561", "9125712561"}
+    local Gui = Instance.new("ScreenGui", LocalPlayer.PlayerGui)
+    Gui.Name = "Screamer"
+    local counter = 0
+    while counter < 8 do
+        task.wait(1)
+        local s = Instance.new("Sound", Gui)
+        s.SoundId = "rbxassetid://" .. Screams[counter+1]
+        s.Volume = 1
+        s.Looped = true
+        s:Play()
+        counter += 1
+    end
+    local Screamer = Instance.new("ImageLabel", Gui)
+    Screamer.Image = "rbxassetid://142410803"
+    Screamer.Size = UDim2.new(1,0,1,0)
+    while task.wait() do
+        Screamer.ImageColor3 = Color3.new(math.random(1,255)/255,math.random(1,255)/255,math.random(1,255)/255)
+        task.wait()
+        Screamer.ImageColor3 = Color3.new(1,1,1)
+    end
+end
+
 local StarterGui = game:GetService("StarterGui")
 local CrashEvent = ReplicatedStorage.ShootEvent
 local Random = Random.new()
